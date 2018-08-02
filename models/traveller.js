@@ -24,11 +24,15 @@ return result;
 };
 
 Traveller.prototype.calculateTotalDistanceTravelled = function () {
-  let journeyDistances = this.journeys.map(journey => journey.distance);
-  return journeyDistances.reduce((total, journey) => {
-    return total + journey;
-  })
+  return this.journeys.reduce(( total, journey) => total += journey.distance , 0)
 };
+
+// Traveller.prototype.calculateTotalDistanceTravelled = function () {
+//   let journeyDistances = this.journeys.map(journey => journey.distance);
+//   return journeyDistances.reduce((total, journey) => {
+//     return total + journey;
+//   })
+// };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
   return Array.from(new Set(this.getModesOfTransport()))
